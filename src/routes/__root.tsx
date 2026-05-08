@@ -72,14 +72,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Nakshatra Retreat — A Luxury Nature Sanctuary" },
+      { name: "description", content: "Escape into nature at Nakshatra Retreat — a 5-star luxury resort with cinematic forest villas, fine dining, holistic spa, and destination weddings." },
+      { name: "author", content: "Nakshatra Retreat" },
+      { property: "og:title", content: "Nakshatra Retreat — A Luxury Nature Sanctuary" },
+      { property: "og:description", content: "Cinematic forest villas, fine dining, and immersive wellness experiences." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
