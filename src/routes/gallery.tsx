@@ -2,15 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Effects";
 import { useState } from "react";
-import deluxe from "@/assets/room-deluxe.jpg";
-import villa from "@/assets/room-villa.jpg";
-import honeymoon from "@/assets/room-honeymoon.jpg";
-import dining from "@/assets/dining.jpg";
-import spa from "@/assets/spa.jpg";
-import nature from "@/assets/nature.jpg";
-import wedding from "@/assets/wedding.jpg";
-import about from "@/assets/about.jpg";
-import hero from "@/assets/hero.jpg";
+import deluxe from "@/assets/resort-day.webp";
+import villa from "@/assets/resort-night.webp";
+import honeymoon from "@/assets/fountain-night.webp";
+import dining from "@/assets/pool-day.webp";
+import spa from "@/assets/pool-night.webp";
+import nature from "@/assets/resort-aerial.webp";
+import wedding from "@/assets/adventure-sunset.webp";
+import about from "@/assets/camping.webp";
+import hero from "@/assets/resort-front.webp";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({

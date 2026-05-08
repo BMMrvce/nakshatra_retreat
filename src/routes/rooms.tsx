@@ -2,10 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Effects";
 import { Bed, Wifi, Coffee, Bath, Trees, Users } from "lucide-react";
-import deluxe from "@/assets/room-deluxe.jpg";
-import villa from "@/assets/room-villa.jpg";
-import honeymoon from "@/assets/room-honeymoon.jpg";
-import about from "@/assets/about.jpg";
+import deluxe from "@/assets/resort-day.webp";
+import villa from "@/assets/resort-night.webp";
+import honeymoon from "@/assets/fountain-night.webp";
+import about from "@/assets/camping.webp";
 
 export const Route = createFileRoute("/rooms")({
   head: () => ({

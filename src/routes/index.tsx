@@ -2,14 +2,14 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Reveal, Particles } from "@/components/Effects";
 import { Star, MapPin, Sparkles, Leaf, Wind, Sun, ArrowRight, Quote } from "lucide-react";
-import hero from "@/assets/hero.jpg";
-import nature from "@/assets/nature.jpg";
-import deluxe from "@/assets/room-deluxe.jpg";
-import villa from "@/assets/room-villa.jpg";
-import honeymoon from "@/assets/room-honeymoon.jpg";
-import dining from "@/assets/dining.jpg";
-import spa from "@/assets/spa.jpg";
-import about from "@/assets/about.jpg";
+import hero from "@/assets/resort-front.webp";
+import nature from "@/assets/resort-aerial.webp";
+import deluxe from "@/assets/resort-day.webp";
+import villa from "@/assets/resort-night.webp";
+import honeymoon from "@/assets/fountain-night.webp";
+import dining from "@/assets/pool-day.webp";
+import spa from "@/assets/pool-night.webp";
+import about from "@/assets/camping.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
