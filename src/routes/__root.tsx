@@ -108,12 +108,22 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { ScrollProgress, CursorGlow } from "@/components/Effects";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <ScrollProgress />
+      <CursorGlow />
+      <Navbar />
+      <main className="min-h-screen">
+        <Outlet />
+      </main>
+      <Footer />
     </QueryClientProvider>
   );
 }
