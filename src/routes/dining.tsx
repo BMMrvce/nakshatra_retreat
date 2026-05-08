@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Effects";
-import dining from "@/assets/dining.jpg";
-import nature from "@/assets/nature.jpg";
+import dining from "@/assets/pool-day.webp";
+import nature from "@/assets/resort-aerial.webp";
 
 export const Route = createFileRoute("/dining")({
   head: () => ({

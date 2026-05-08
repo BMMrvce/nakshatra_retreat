@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Effects";
 import { Flame, Waves, Mountain, Heart, Bike, Sparkles } from "lucide-react";
-import spa from "@/assets/spa.jpg";
+import spa from "@/assets/pool-night.webp";
 
 export const Route = createFileRoute("/spa")({
   head: () => ({

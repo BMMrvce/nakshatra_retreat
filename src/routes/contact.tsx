@@ -3,7 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Effects";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { useState } from "react";
-import nature from "@/assets/nature.jpg";
+import nature from "@/assets/resort-aerial.webp";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

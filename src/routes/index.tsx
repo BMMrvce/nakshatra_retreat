@@ -2,14 +2,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Reveal, Particles } from "@/components/Effects";
 import { Star, MapPin, Sparkles, Leaf, Wind, Sun, ArrowRight, Quote } from "lucide-react";
-import hero from "@/assets/hero.jpg";
-import nature from "@/assets/nature.jpg";
-import deluxe from "@/assets/room-deluxe.jpg";
-import villa from "@/assets/room-villa.jpg";
-import honeymoon from "@/assets/room-honeymoon.jpg";
-import dining from "@/assets/dining.jpg";
-import spa from "@/assets/spa.jpg";
-import about from "@/assets/about.jpg";
+import hero from "@/assets/resort-front.webp";
+import nature from "@/assets/resort-aerial.webp";
+import deluxe from "@/assets/resort-day.webp";
+import villa from "@/assets/resort-night.webp";
+import honeymoon from "@/assets/fountain-night.webp";
+import dining from "@/assets/pool-day.webp";
+import spa from "@/assets/pool-night.webp";
+import about from "@/assets/camping.webp";
+import adventure from "@/assets/adventure-rope.webp";
+import adventureSunset from "@/assets/adventure-sunset.webp";
+import poolNight from "@/assets/pool-night.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -247,6 +250,46 @@ function Home() {
                     <div className="text-xs text-muted-foreground tracking-wider uppercase mt-1">{t.r}</div>
                   </div>
                 </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DISCOVER ALL PAGES */}
+      <section className="py-32 px-6 bg-[oklch(0.12_0.02_150)] border-y border-border">
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-16">
+              <div className="eyebrow mb-4">Explore</div>
+              <h2 className="font-serif text-4xl md:text-6xl">Every Corner of Nakshatra</h2>
+              <p className="mt-4 text-muted-foreground max-w-xl mx-auto">A complete journey through our sanctuary — every experience, every space.</p>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {[
+              { to: "/about", img: nature, name: "Our Story" },
+              { to: "/rooms", img: deluxe, name: "Villas & Suites" },
+              { to: "/dining", img: dining, name: "Dining" },
+              { to: "/spa", img: spa, name: "Spa & Wellness" },
+              { to: "/gallery", img: poolNight, name: "Gallery" },
+              { to: "/weddings", img: adventureSunset, name: "Weddings" },
+              { to: "/contact", img: about, name: "Contact & Stay" },
+              { to: "/rooms", img: adventure, name: "Adventure" },
+            ].map((p, i) => (
+              <Reveal key={p.name} delay={(i % 4) * 0.08}>
+                <Link to={p.to} className="block group hover-lift">
+                  <div className="img-zoom rounded-2xl relative aspect-[4/5]">
+                    <img src={p.img} alt={p.name} loading="lazy" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.10_0.02_150)] via-[oklch(0.10_0.02_150)]/30 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <h3 className="font-serif text-xl">{p.name}</h3>
+                      <div className="mt-2 text-xs tracking-[0.3em] uppercase text-gold flex items-center gap-2 opacity-80 group-hover:opacity-100 transition">
+                        Discover <ArrowRight size={12} />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
               </Reveal>
             ))}
           </div>
