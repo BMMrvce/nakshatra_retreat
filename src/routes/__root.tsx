@@ -76,9 +76,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Escape into nature at Nakshatra Retreat — a 5-star luxury resort with cinematic forest villas, fine dining, holistic spa, and destination weddings." },
       { name: "author", content: "Nakshatra Retreat" },
       { property: "og:title", content: "Nakshatra Retreat — A Luxury Nature Sanctuary" },
-      { property: "og:description", content: "Cinematic forest villas, fine dining, and immersive wellness experiences." },
+      { property: "og:description", content: "Escape into nature at Nakshatra Retreat — a 5-star luxury resort with cinematic forest villas, fine dining, holistic spa, and destination weddings." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Nakshatra Retreat — A Luxury Nature Sanctuary" },
+      { name: "twitter:description", content: "Escape into nature at Nakshatra Retreat — a 5-star luxury resort with cinematic forest villas, fine dining, holistic spa, and destination weddings." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2b37e6c4-8e19-4d91-aa8c-40130689fb55/id-preview-33253b47--4fef7705-1321-49fb-a055-f0d72785f87e.lovable.app-1778244910257.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2b37e6c4-8e19-4d91-aa8c-40130689fb55/id-preview-33253b47--4fef7705-1321-49fb-a055-f0d72785f87e.lovable.app-1778244910257.png" },
     ],
     links: [
       {
