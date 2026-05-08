@@ -11,6 +11,17 @@ import nature from "@/assets/resort-aerial.webp";
 import wedding from "@/assets/adventure-sunset.webp";
 import about from "@/assets/camping.webp";
 import hero from "@/assets/resort-front.webp";
+import gardenBench from "@/assets/garden-bench.webp";
+import cottage from "@/assets/cottage.webp";
+import aerialGrounds from "@/assets/aerial-grounds.webp";
+import heritageCourtyard from "@/assets/heritage-courtyard.webp";
+import heritageSwing from "@/assets/heritage-swing.webp";
+import playground from "@/assets/playground.webp";
+import cricketNet from "@/assets/cricket-net.webp";
+import gardenLights from "@/assets/garden-lights.webp";
+import gamesBarrel from "@/assets/games-barrel.webp";
+import gamesRoom from "@/assets/games-room.webp";
+import adventureRope from "@/assets/adventure-rope.webp";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -26,19 +37,28 @@ export const Route = createFileRoute("/gallery")({
 
 const photos = [
   { src: hero, cat: "Resort", aspect: "row-span-2" },
+  { src: aerialGrounds, cat: "Resort", aspect: "row-span-2" },
+  { src: cottage, cat: "Rooms" },
   { src: deluxe, cat: "Rooms" },
-  { src: dining, cat: "Dining" },
   { src: villa, cat: "Rooms", aspect: "row-span-2" },
-  { src: nature, cat: "Nature" },
-  { src: spa, cat: "Wellness" },
   { src: honeymoon, cat: "Rooms" },
+  { src: heritageCourtyard, cat: "Heritage", aspect: "row-span-2" },
+  { src: heritageSwing, cat: "Heritage" },
+  { src: dining, cat: "Dining" },
+  { src: spa, cat: "Wellness" },
+  { src: gardenBench, cat: "Nature" },
+  { src: gardenLights, cat: "Nature", aspect: "row-span-2" },
+  { src: nature, cat: "Nature" },
+  { src: playground, cat: "Activities" },
+  { src: cricketNet, cat: "Activities" },
+  { src: adventureRope, cat: "Activities" },
+  { src: gamesBarrel, cat: "Activities" },
+  { src: gamesRoom, cat: "Activities", aspect: "row-span-2" },
   { src: wedding, cat: "Weddings", aspect: "row-span-2" },
   { src: about, cat: "Resort" },
-  { src: nature, cat: "Nature" },
-  { src: dining, cat: "Dining" },
 ];
 
-const cats = ["All", "Rooms", "Dining", "Nature", "Wellness", "Weddings", "Resort"];
+const cats = ["All", "Rooms", "Heritage", "Dining", "Nature", "Wellness", "Activities", "Weddings", "Resort"];
 
 function Gallery() {
   const [filter, setFilter] = useState("All");
