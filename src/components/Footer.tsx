@@ -32,9 +32,9 @@ export function Footer() {
         <div>
           <h4 className="eyebrow mb-5">Reach Us</h4>
           <ul className="space-y-3 text-sm text-foreground/70">
-            <li className="flex gap-2 items-start"><MapPin size={14} className="text-gold mt-1" /> Hidden Valley Road,<br />Western Ghats, India</li>
-            <li className="flex gap-2 items-center"><Phone size={14} className="text-gold" /> +91 90000 00000</li>
-            <li className="flex gap-2 items-center"><Mail size={14} className="text-gold" /> stay@nakshatraretreat.com</li>
+            <li className="flex gap-2 items-start"><MapPin size={14} className="text-gold mt-1" /><span>Hidden Valley Road,<br />Western Ghats, India</span></li>
+            <li className="flex gap-2 items-center"><Phone size={14} className="text-gold" /><span>+91 90000 00000</span></li>
+            <li className="flex gap-2 items-center"><Mail size={14} className="text-gold" /><span>stay@nakshatraretreat.com</span></li>
           </ul>
         </div>
 
