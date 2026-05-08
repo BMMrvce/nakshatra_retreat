@@ -256,6 +256,46 @@ function Home() {
         </div>
       </section>
 
+      {/* DISCOVER ALL PAGES */}
+      <section className="py-32 px-6 bg-[oklch(0.12_0.02_150)] border-y border-border">
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-16">
+              <div className="eyebrow mb-4">Explore</div>
+              <h2 className="font-serif text-4xl md:text-6xl">Every Corner of Nakshatra</h2>
+              <p className="mt-4 text-muted-foreground max-w-xl mx-auto">A complete journey through our sanctuary — every experience, every space.</p>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            {[
+              { to: "/about", img: nature, name: "Our Story" },
+              { to: "/rooms", img: deluxe, name: "Villas & Suites" },
+              { to: "/dining", img: dining, name: "Dining" },
+              { to: "/spa", img: spa, name: "Spa & Wellness" },
+              { to: "/gallery", img: poolNight, name: "Gallery" },
+              { to: "/weddings", img: adventureSunset, name: "Weddings" },
+              { to: "/contact", img: about, name: "Contact & Stay" },
+              { to: "/rooms", img: adventure, name: "Adventure" },
+            ].map((p, i) => (
+              <Reveal key={p.name} delay={(i % 4) * 0.08}>
+                <Link to={p.to} className="block group hover-lift">
+                  <div className="img-zoom rounded-2xl relative aspect-[4/5]">
+                    <img src={p.img} alt={p.name} loading="lazy" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.10_0.02_150)] via-[oklch(0.10_0.02_150)]/30 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <h3 className="font-serif text-xl">{p.name}</h3>
+                      <div className="mt-2 text-xs tracking-[0.3em] uppercase text-gold flex items-center gap-2 opacity-80 group-hover:opacity-100 transition">
+                        Discover <ArrowRight size={12} />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="relative py-40 px-6 overflow-hidden">
         <div className="absolute inset-0">
