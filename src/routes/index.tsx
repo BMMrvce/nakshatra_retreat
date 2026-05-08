@@ -10,6 +10,9 @@ import honeymoon from "@/assets/fountain-night.webp";
 import dining from "@/assets/pool-day.webp";
 import spa from "@/assets/pool-night.webp";
 import about from "@/assets/camping.webp";
+import adventure from "@/assets/adventure-rope.webp";
+import adventureSunset from "@/assets/adventure-sunset.webp";
+import poolNight from "@/assets/pool-night.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
