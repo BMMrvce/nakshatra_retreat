@@ -21,10 +21,10 @@ export function Footer() {
         <div>
           <h4 className="eyebrow mb-5">Explore</h4>
           <ul className="space-y-3 text-sm text-foreground/70">
-            <li><Link to="/about" className="hover:text-gold transition">About</Link></li>
-            <li><Link to="/spa" className="hover:text-gold transition">Spa & Activities</Link></li>
-            <li><Link to="/gallery" className="hover:text-gold transition">Gallery</Link></li>
-            <li><Link to="/contact" className="hover:text-gold transition">Contact</Link></li>
+            <li><a href="#about" className="hover:text-gold transition">About</a></li>
+            <li><a href="#spa" className="hover:text-gold transition">Spa & Activities</a></li>
+            <li><a href="#gallery" className="hover:text-gold transition">Gallery</a></li>
+            <li><a href="#contact" className="hover:text-gold transition">Contact</a></li>
           </ul>
         </div>
 
