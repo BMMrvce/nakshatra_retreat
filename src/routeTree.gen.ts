@@ -9,38 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WeddingsRouteImport } from './routes/weddings'
 import { Route as SpaRouteImport } from './routes/spa'
-import { Route as RoomsRouteImport } from './routes/rooms'
 import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as DiningRouteImport } from './routes/dining'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
-const WeddingsRoute = WeddingsRouteImport.update({
-  id: '/weddings',
-  path: '/weddings',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SpaRoute = SpaRouteImport.update({
   id: '/spa',
   path: '/spa',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RoomsRoute = RoomsRouteImport.update({
-  id: '/rooms',
-  path: '/rooms',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DiningRoute = DiningRouteImport.update({
-  id: '/dining',
-  path: '/dining',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -63,86 +45,42 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/dining': typeof DiningRoute
   '/gallery': typeof GalleryRoute
-  '/rooms': typeof RoomsRoute
   '/spa': typeof SpaRoute
-  '/weddings': typeof WeddingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/dining': typeof DiningRoute
   '/gallery': typeof GalleryRoute
-  '/rooms': typeof RoomsRoute
   '/spa': typeof SpaRoute
-  '/weddings': typeof WeddingsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/dining': typeof DiningRoute
   '/gallery': typeof GalleryRoute
-  '/rooms': typeof RoomsRoute
   '/spa': typeof SpaRoute
-  '/weddings': typeof WeddingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/dining'
-    | '/gallery'
-    | '/rooms'
-    | '/spa'
-    | '/weddings'
+  fullPaths: '/' | '/about' | '/contact' | '/gallery' | '/spa'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/dining'
-    | '/gallery'
-    | '/rooms'
-    | '/spa'
-    | '/weddings'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/dining'
-    | '/gallery'
-    | '/rooms'
-    | '/spa'
-    | '/weddings'
+  to: '/' | '/about' | '/contact' | '/gallery' | '/spa'
+  id: '__root__' | '/' | '/about' | '/contact' | '/gallery' | '/spa'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  DiningRoute: typeof DiningRoute
   GalleryRoute: typeof GalleryRoute
-  RoomsRoute: typeof RoomsRoute
   SpaRoute: typeof SpaRoute
-  WeddingsRoute: typeof WeddingsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/weddings': {
-      id: '/weddings'
-      path: '/weddings'
-      fullPath: '/weddings'
-      preLoaderRoute: typeof WeddingsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/spa': {
       id: '/spa'
       path: '/spa'
@@ -150,25 +88,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/rooms': {
-      id: '/rooms'
-      path: '/rooms'
-      fullPath: '/rooms'
-      preLoaderRoute: typeof RoomsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dining': {
-      id: '/dining'
-      path: '/dining'
-      fullPath: '/dining'
-      preLoaderRoute: typeof DiningRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -199,11 +123,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  DiningRoute: DiningRoute,
   GalleryRoute: GalleryRoute,
-  RoomsRoute: RoomsRoute,
   SpaRoute: SpaRoute,
-  WeddingsRoute: WeddingsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

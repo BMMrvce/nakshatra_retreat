@@ -4,14 +4,8 @@ import { Reveal, Particles } from "@/components/Effects";
 import { Star, MapPin, Sparkles, Leaf, Wind, Sun, ArrowRight, Quote } from "lucide-react";
 import hero from "@/assets/resort-front.webp";
 import nature from "@/assets/resort-aerial.webp";
-import deluxe from "@/assets/resort-day.webp";
-import villa from "@/assets/resort-night.webp";
-import honeymoon from "@/assets/fountain-night.webp";
-import dining from "@/assets/pool-day.webp";
 import spa from "@/assets/pool-night.webp";
 import about from "@/assets/camping.webp";
-import adventure from "@/assets/adventure-rope.webp";
-import adventureSunset from "@/assets/adventure-sunset.webp";
 import poolNight from "@/assets/pool-night.webp";
 
 export const Route = createFileRoute("/")({
@@ -70,7 +64,7 @@ function Home() {
             className="mt-10 flex flex-wrap gap-4 justify-center"
           >
             <Link to="/contact" className="btn-gold">Reserve Your Stay <ArrowRight size={14} /></Link>
-            <Link to="/rooms" className="btn-outline-gold">Explore Villas</Link>
+            <Link to="/gallery" className="btn-outline-gold">Explore Gallery</Link>
           </motion.div>
         </div>
 
@@ -120,41 +114,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ROOMS PREVIEW */}
-      <section className="py-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          <Reveal>
-            <div className="text-center mb-16">
-              <div className="eyebrow mb-4">Stay With Us</div>
-              <h2 className="font-serif text-4xl md:text-6xl">Curated Villas & Suites</h2>
-            </div>
-          </Reveal>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { img: deluxe, name: "Deluxe Forest Room", price: "₹14,500" },
-              { img: villa, name: "Private Pool Villa", price: "₹38,000" },
-              { img: honeymoon, name: "Honeymoon Suite", price: "₹26,000" },
-            ].map((r, i) => (
-              <Reveal key={r.name} delay={i * 0.1}>
-                <Link to="/rooms" className="block group hover-lift">
-                  <div className="img-zoom rounded-2xl relative aspect-[4/5]">
-                    <img src={r.img} alt={r.name} loading="lazy" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.10_0.02_150)] via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="font-serif text-2xl mb-1">{r.name}</h3>
-                      <p className="text-sm text-gold">{r.price} <span className="text-foreground/60">/ night</span></p>
-                    </div>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link to="/rooms" className="btn-outline-gold">View All Accommodations</Link>
-          </div>
-        </div>
-      </section>
-
       {/* PARALLAX QUOTE */}
       <section className="relative py-40 overflow-hidden">
         <div className="absolute inset-0">
@@ -175,22 +134,6 @@ function Home() {
       {/* SPLIT FEATURES */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <Reveal>
-            <div className="img-zoom rounded-2xl">
-              <img src={dining} alt="Candlelight forest dining" loading="lazy" className="w-full aspect-[4/5] object-cover" />
-            </div>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <div className="eyebrow mb-4">Cuisine</div>
-            <h2 className="font-serif text-4xl md:text-5xl mb-6">Dining beneath a canopy of stars</h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Our chefs forage from the very forest you'll fall asleep to. Hand-foraged spices, slow-roasted heritage grains, and an ever-changing menu shaped by the seasons.
-            </p>
-            <Link to="/dining" className="btn-outline-gold">Explore Dining</Link>
-          </Reveal>
-        </div>
-
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center mt-32">
           <Reveal className="md:order-2">
             <div className="img-zoom rounded-2xl">
               <img src={spa} alt="Stone spa with candlelight" loading="lazy" className="w-full aspect-[4/5] object-cover" />
@@ -269,13 +212,9 @@ function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
             {[
               { to: "/about", img: nature, name: "Our Story" },
-              { to: "/rooms", img: deluxe, name: "Villas & Suites" },
-              { to: "/dining", img: dining, name: "Dining" },
               { to: "/spa", img: spa, name: "Spa & Wellness" },
               { to: "/gallery", img: poolNight, name: "Gallery" },
-              { to: "/weddings", img: adventureSunset, name: "Weddings" },
               { to: "/contact", img: about, name: "Contact & Stay" },
-              { to: "/rooms", img: adventure, name: "Adventure" },
             ].map((p, i) => (
               <Reveal key={p.name} delay={(i % 4) * 0.08}>
                 <Link to={p.to} className="block group hover-lift">
