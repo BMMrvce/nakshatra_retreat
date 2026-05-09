@@ -4,14 +4,8 @@ import { Reveal, Particles } from "@/components/Effects";
 import { Star, MapPin, Sparkles, Leaf, Wind, Sun, ArrowRight, Quote } from "lucide-react";
 import hero from "@/assets/resort-front.webp";
 import nature from "@/assets/resort-aerial.webp";
-import deluxe from "@/assets/resort-day.webp";
-import villa from "@/assets/resort-night.webp";
-import honeymoon from "@/assets/fountain-night.webp";
-import dining from "@/assets/pool-day.webp";
 import spa from "@/assets/pool-night.webp";
 import about from "@/assets/camping.webp";
-import adventure from "@/assets/adventure-rope.webp";
-import adventureSunset from "@/assets/adventure-sunset.webp";
 import poolNight from "@/assets/pool-night.webp";
 
 export const Route = createFileRoute("/")({
