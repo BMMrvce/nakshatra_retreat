@@ -1,18 +1,38 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Reveal, Particles } from "@/components/Effects";
-import { Star, MapPin, Sparkles, Leaf, Wind, Sun, ArrowRight, Quote } from "lucide-react";
+import { useState } from "react";
+import {
+  Star, MapPin, Sparkles, Leaf, Wind, Sun, ArrowRight, Quote,
+  Flame, Waves, Mountain, Heart, Bike,
+  Mail, Phone, MessageCircle,
+} from "lucide-react";
 import hero from "@/assets/resort-front.webp";
 import nature from "@/assets/resort-aerial.webp";
+import deluxe from "@/assets/resort-day.webp";
+import villa from "@/assets/resort-night.webp";
+import honeymoon from "@/assets/fountain-night.webp";
+import dining from "@/assets/pool-day.webp";
 import spa from "@/assets/pool-night.webp";
 import about from "@/assets/camping.webp";
-import poolNight from "@/assets/pool-night.webp";
+import wedding from "@/assets/adventure-sunset.webp";
+import gardenBench from "@/assets/garden-bench.webp";
+import cottage from "@/assets/cottage.webp";
+import aerialGrounds from "@/assets/aerial-grounds.webp";
+import heritageCourtyard from "@/assets/heritage-courtyard.webp";
+import heritageSwing from "@/assets/heritage-swing.webp";
+import playground from "@/assets/playground.webp";
+import cricketNet from "@/assets/cricket-net.webp";
+import gardenLights from "@/assets/garden-lights.webp";
+import gamesBarrel from "@/assets/games-barrel.webp";
+import gamesRoom from "@/assets/games-room.webp";
+import adventureRope from "@/assets/adventure-rope.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Nakshatra Retreat — Luxury Forest Resort & Wellness Sanctuary" },
-      { name: "description", content: "Escape into nature at Nakshatra Retreat. Cinematic villas, fine dining, holistic spa, and unforgettable destination weddings beneath a canopy of stars." },
+      { name: "description", content: "Escape into nature at Nakshatra Retreat. Cinematic villas, fine dining, holistic spa, and unforgettable experiences beneath a canopy of stars." },
       { property: "og:title", content: "Nakshatra Retreat — Luxury Forest Resort" },
       { property: "og:description", content: "A 5-star nature sanctuary in the Western Ghats." },
     ],
@@ -20,11 +40,58 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+const timeline = [
+  { y: "2008", t: "A Vision Sown", d: "Founders Aarav & Meera Iyer purchase 120 acres of unspoiled forest, vowing to preserve every tree." },
+  { y: "2010", t: "Doors Open", d: "The first six villas welcome guests, hand-built by local artisans using only reclaimed timber." },
+  { y: "2015", t: "The Spa Awakens", d: "Our subterranean spa is consecrated, blending Ayurveda with the silence of the earth." },
+  { y: "2020", t: "Carbon Negative", d: "Nakshatra becomes the first Indian retreat to receive carbon-negative certification." },
+  { y: "2025", t: "A Decade of Quiet Luxury", d: "Recognized as one of Asia's finest nature sanctuaries by Travel + Leisure." },
+];
+
+const activities = [
+  { i: Sparkles, n: "Ayurvedic Spa", d: "Hour-long oil rituals performed by lineage healers." },
+  { i: Heart, n: "Sunrise Yoga", d: "Daily on the misty cliff pavilion with our resident master." },
+  { i: Waves, n: "Mineral Pools", d: "Subterranean spring-fed pools at three temperatures." },
+  { i: Mountain, n: "Guided Treks", d: "Hidden waterfalls, sacred groves, dawn ridge walks." },
+  { i: Flame, n: "Campfire Nights", d: "Storytelling, mulled wine, constellation maps." },
+  { i: Bike, n: "Forest Cycling", d: "Hand-built wooden bicycles on shaded trails." },
+];
+
+const photos = [
+  { src: hero, cat: "Resort", aspect: "row-span-2" },
+  { src: aerialGrounds, cat: "Resort", aspect: "row-span-2" },
+  { src: cottage, cat: "Rooms" },
+  { src: deluxe, cat: "Rooms" },
+  { src: villa, cat: "Rooms", aspect: "row-span-2" },
+  { src: honeymoon, cat: "Rooms" },
+  { src: heritageCourtyard, cat: "Heritage", aspect: "row-span-2" },
+  { src: heritageSwing, cat: "Heritage" },
+  { src: dining, cat: "Dining" },
+  { src: spa, cat: "Wellness" },
+  { src: gardenBench, cat: "Nature" },
+  { src: gardenLights, cat: "Nature", aspect: "row-span-2" },
+  { src: nature, cat: "Nature" },
+  { src: playground, cat: "Activities" },
+  { src: cricketNet, cat: "Activities" },
+  { src: adventureRope, cat: "Activities" },
+  { src: gamesBarrel, cat: "Activities" },
+  { src: gamesRoom, cat: "Activities", aspect: "row-span-2" },
+  { src: wedding, cat: "Sunset", aspect: "row-span-2" },
+  { src: about, cat: "Resort" },
+];
+
+const cats = ["All", "Resort", "Rooms", "Heritage", "Dining", "Nature", "Wellness", "Activities", "Sunset"];
+
 function Home() {
+  const [filter, setFilter] = useState("All");
+  const [open, setOpen] = useState<string | null>(null);
+  const [sent, setSent] = useState(false);
+  const filtered = filter === "All" ? photos : photos.filter((p) => p.cat === filter);
+
   return (
     <>
       {/* HERO */}
-      <section className="relative h-screen min-h-[700px] w-full overflow-hidden">
+      <section id="home" className="relative h-screen min-h-[700px] w-full overflow-hidden">
         <div className="absolute inset-0">
           <img src={hero} alt="Nakshatra Retreat luxury forest villa at golden hour" className="w-full h-full object-cover animate-slow-zoom" />
           <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
@@ -33,53 +100,28 @@ function Home() {
         <Particles count={30} />
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
-            className="eyebrow mb-8"
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.3 }} className="eyebrow mb-8">
             ✦ A Luxury Nature Retreat ✦
           </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.4, delay: 0.5 }}
-            className="font-serif text-6xl md:text-8xl lg:text-9xl leading-[0.95] font-light max-w-5xl"
-          >
+          <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.4, delay: 0.5 }} className="font-serif text-6xl md:text-8xl lg:text-9xl leading-[0.95] font-light max-w-5xl">
             Escape Into <em className="text-shimmer not-italic">Nature</em>
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="mt-8 max-w-xl text-lg md:text-xl text-foreground/85 font-light"
-          >
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }} className="mt-8 max-w-xl text-lg md:text-xl text-foreground/85 font-light">
             Experience the cinematic luxury of Nakshatra Retreat — where ancient forests, starlit skies, and timeless hospitality awaken the soul.
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.3 }}
-            className="mt-10 flex flex-wrap gap-4 justify-center"
-          >
-            <Link to="/contact" className="btn-gold">Reserve Your Stay <ArrowRight size={14} /></Link>
-            <Link to="/gallery" className="btn-outline-gold">Explore Gallery</Link>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 1.3 }} className="mt-10 flex flex-wrap gap-4 justify-center">
+            <a href="#contact" className="btn-gold">Reserve Your Stay <ArrowRight size={14} /></a>
+            <a href="#gallery" className="btn-outline-gold">Explore Gallery</a>
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 text-foreground/60 text-xs tracking-[0.4em] uppercase animate-float"
-        >
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }} className="absolute bottom-10 left-1/2 -translate-x-1/2 text-foreground/60 text-xs tracking-[0.4em] uppercase animate-float">
           Scroll to discover
         </motion.div>
       </section>
 
       {/* INTRO */}
-      <section className="py-32 px-6 max-w-5xl mx-auto text-center">
+      <section id="about" className="py-32 px-6 max-w-5xl mx-auto text-center">
         <Reveal>
           <div className="luxe-divider mb-8 text-xs tracking-[0.4em]">SINCE 2010</div>
           <h2 className="font-serif text-4xl md:text-6xl leading-tight">
@@ -114,6 +156,44 @@ function Home() {
         </div>
       </section>
 
+      {/* OUR STORY / TIMELINE */}
+      <section className="py-32 px-6 max-w-4xl mx-auto text-center">
+        <Reveal>
+          <div className="luxe-divider mb-6 text-xs tracking-[0.4em]">PHILOSOPHY</div>
+          <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-8">
+            "We did not build a resort.<br />
+            <span className="italic text-gradient-gold">We listened to a forest, and it told us where to sleep."</span>
+          </h2>
+          <p className="text-muted-foreground leading-relaxed text-lg">
+            Every villa rests on stilts above the forest floor — no tree was felled in our making. Our staff are children of these hills. Our food, the harvest of our soil. Our luxury, the privilege of leaving no trace.
+          </p>
+        </Reveal>
+      </section>
+
+      <section className="py-24 px-6 bg-[oklch(0.14_0.02_150)] border-y border-border">
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-16">
+              <div className="eyebrow mb-4">Our Journey</div>
+              <h2 className="font-serif text-4xl md:text-5xl">A timeline of reverence</h2>
+            </div>
+          </Reveal>
+          <div className="space-y-12">
+            {timeline.map((t, i) => (
+              <Reveal key={t.y} delay={i * 0.05}>
+                <div className="grid md:grid-cols-[120px_1fr] gap-6 md:gap-12 items-start border-l-2 border-gold/30 pl-6 md:border-l-0 md:pl-0">
+                  <div className="font-serif text-4xl text-gradient-gold">{t.y}</div>
+                  <div>
+                    <h3 className="font-serif text-2xl mb-2">{t.t}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{t.d}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PARALLAX QUOTE */}
       <section className="relative py-40 overflow-hidden">
         <div className="absolute inset-0">
@@ -131,21 +211,46 @@ function Home() {
         </div>
       </section>
 
-      {/* SPLIT FEATURES */}
+      {/* SPA & WELLNESS */}
+      <section id="spa" className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-16">
+              <div className="eyebrow mb-4">Wellness & Adventure</div>
+              <h2 className="font-serif text-4xl md:text-6xl">Awaken every sense</h2>
+              <p className="mt-4 text-muted-foreground max-w-xl mx-auto">From quiet hours in our spa to roaring nights around the campfire — a rhythm for every traveler.</p>
+            </div>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-6">
+            {activities.map((it, i) => (
+              <Reveal key={it.n} delay={(i % 3) * 0.1}>
+                <div className="glass p-10 rounded-2xl hover-lift h-full group">
+                  <div className="inline-flex p-4 rounded-full glass mb-6 group-hover:shadow-[var(--shadow-gold)] transition-all duration-500">
+                    <it.i className="text-gold" size={24} />
+                  </div>
+                  <h3 className="font-serif text-2xl mb-3">{it.n}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{it.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SPLIT FEATURE — DINING */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <Reveal className="md:order-2">
+          <Reveal>
             <div className="img-zoom rounded-2xl">
-              <img src={spa} alt="Stone spa with candlelight" loading="lazy" className="w-full aspect-[4/5] object-cover" />
+              <img src={dining} alt="Candlelight forest dining" loading="lazy" className="w-full aspect-[4/5] object-cover" />
             </div>
           </Reveal>
           <Reveal delay={0.2}>
-            <div className="eyebrow mb-4">Wellness</div>
-            <h2 className="font-serif text-4xl md:text-5xl mb-6">An ancient art of stillness</h2>
+            <div className="eyebrow mb-4">Cuisine</div>
+            <h2 className="font-serif text-4xl md:text-5xl mb-6">Dining beneath a canopy of stars</h2>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Surrender to centuries-old Ayurvedic rituals, sunrise yoga on misty cliffs, and quiet hours in our subterranean mineral pools.
+              Our chefs forage from the very forest you'll fall asleep to. Hand-foraged spices, slow-roasted heritage grains, and an ever-changing menu shaped by the seasons.
             </p>
-            <Link to="/spa" className="btn-outline-gold">Discover Wellness</Link>
           </Reveal>
         </div>
       </section>
@@ -164,6 +269,47 @@ function Home() {
               <div className="eyebrow mt-3">{s.l}</div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* GALLERY */}
+      <section id="gallery" className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <Reveal>
+            <div className="text-center mb-12">
+              <div className="eyebrow mb-4">Gallery</div>
+              <h2 className="font-serif text-4xl md:text-6xl">A visual love letter</h2>
+              <p className="mt-4 text-muted-foreground">Moments captured between heartbeats.</p>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="flex flex-wrap gap-3 justify-center mb-12">
+              {cats.map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setFilter(c)}
+                  className={`px-5 py-2 rounded-full text-xs tracking-[0.2em] uppercase transition-all duration-300 ${
+                    filter === c
+                      ? "bg-gold text-background"
+                      : "border border-border text-foreground/70 hover:border-gold hover:text-gold"
+                  }`}
+                >
+                  {c}
+                </button>
+              ))}
+            </div>
+          </Reveal>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4">
+            {filtered.map((p, i) => (
+              <Reveal key={i} delay={(i % 4) * 0.05} className={p.aspect ?? ""}>
+                <button onClick={() => setOpen(p.src)} className="img-zoom rounded-xl block w-full h-full">
+                  <img src={p.src} alt={p.cat} loading="lazy" className="w-full h-full object-cover" />
+                </button>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -199,38 +345,76 @@ function Home() {
         </div>
       </section>
 
-      {/* DISCOVER ALL PAGES */}
-      <section className="py-32 px-6 bg-[oklch(0.12_0.02_150)] border-y border-border">
+      {/* CONTACT */}
+      <section id="contact" className="py-24 px-6 bg-[oklch(0.14_0.02_150)] border-y border-border">
         <div className="max-w-7xl mx-auto">
           <Reveal>
             <div className="text-center mb-16">
-              <div className="eyebrow mb-4">Explore</div>
-              <h2 className="font-serif text-4xl md:text-6xl">Every Corner of Nakshatra</h2>
-              <p className="mt-4 text-muted-foreground max-w-xl mx-auto">A complete journey through our sanctuary — every experience, every space.</p>
+              <div className="eyebrow mb-4">Plan Your Escape</div>
+              <h2 className="font-serif text-4xl md:text-6xl">The forest is waiting</h2>
+              <p className="mt-4 text-muted-foreground">Tell us your dream stay and our concierge will reply within four hours.</p>
             </div>
           </Reveal>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-            {[
-              { to: "/about", img: nature, name: "Our Story" },
-              { to: "/spa", img: spa, name: "Spa & Wellness" },
-              { to: "/gallery", img: poolNight, name: "Gallery" },
-              { to: "/contact", img: about, name: "Contact & Stay" },
-            ].map((p, i) => (
-              <Reveal key={p.name} delay={(i % 4) * 0.08}>
-                <Link to={p.to} className="block group hover-lift">
-                  <div className="img-zoom rounded-2xl relative aspect-[4/5]">
-                    <img src={p.img} alt={p.name} loading="lazy" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.10_0.02_150)] via-[oklch(0.10_0.02_150)]/30 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-5">
-                      <h3 className="font-serif text-xl">{p.name}</h3>
-                      <div className="mt-2 text-xs tracking-[0.3em] uppercase text-gold flex items-center gap-2 opacity-80 group-hover:opacity-100 transition">
-                        Discover <ArrowRight size={12} />
-                      </div>
+
+          <div className="grid md:grid-cols-2 gap-16">
+            <Reveal>
+              <div className="eyebrow mb-4">Reservation Inquiry</div>
+              <h3 className="font-serif text-3xl mb-8">Begin your reservation</h3>
+
+              {sent ? (
+                <div className="glass p-10 rounded-2xl text-center">
+                  <div className="text-gold text-5xl mb-4">✦</div>
+                  <h3 className="font-serif text-2xl mb-2">Thank you</h3>
+                  <p className="text-muted-foreground">Our concierge will reach you shortly.</p>
+                </div>
+              ) : (
+                <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="space-y-5">
+                  <div className="grid grid-cols-2 gap-4">
+                    <input required placeholder="First name" className="bg-transparent border border-border rounded-lg px-4 py-3 focus:border-gold outline-none transition" />
+                    <input required placeholder="Last name" className="bg-transparent border border-border rounded-lg px-4 py-3 focus:border-gold outline-none transition" />
+                  </div>
+                  <input required type="email" placeholder="Email" className="w-full bg-transparent border border-border rounded-lg px-4 py-3 focus:border-gold outline-none transition" />
+                  <input placeholder="Phone (optional)" className="w-full bg-transparent border border-border rounded-lg px-4 py-3 focus:border-gold outline-none transition" />
+                  <div className="grid grid-cols-2 gap-4">
+                    <input type="date" className="bg-transparent border border-border rounded-lg px-4 py-3 focus:border-gold outline-none transition text-foreground/80" />
+                    <input type="date" className="bg-transparent border border-border rounded-lg px-4 py-3 focus:border-gold outline-none transition text-foreground/80" />
+                  </div>
+                  <textarea rows={4} placeholder="Tell us about your dream stay..." className="w-full bg-transparent border border-border rounded-lg px-4 py-3 focus:border-gold outline-none transition resize-none" />
+                  <button type="submit" className="btn-gold">Send Inquiry</button>
+                </form>
+              )}
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="eyebrow mb-4">Reach Us</div>
+              <h3 className="font-serif text-3xl mb-8">A whisper away</h3>
+              <div className="space-y-6">
+                {[
+                  { i: MapPin, t: "Hidden Valley Road", s: "Western Ghats, India 571234" },
+                  { i: Phone, t: "+91 90000 00000", s: "Concierge • 24 hours" },
+                  { i: Mail, t: "stay@nakshatraretreat.com", s: "Reservations & inquiries" },
+                  { i: MessageCircle, t: "WhatsApp Concierge", s: "Reply within minutes" },
+                ].map((c) => (
+                  <div key={c.t} className="flex gap-4 items-start glass p-5 rounded-xl hover-lift">
+                    <div className="p-3 rounded-full bg-gold/10">
+                      <c.i className="text-gold" size={20} />
+                    </div>
+                    <div>
+                      <div className="font-serif text-lg">{c.t}</div>
+                      <div className="text-sm text-muted-foreground">{c.s}</div>
                     </div>
                   </div>
-                </Link>
-              </Reveal>
-            ))}
+                ))}
+              </div>
+
+              <div className="mt-10 aspect-[4/3] rounded-2xl overflow-hidden border border-border">
+                <iframe
+                  title="Map"
+                  className="w-full h-full grayscale-[60%] contrast-110"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=75.0%2C12.0%2C76.0%2C13.0&layer=mapnik"
+                />
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -248,10 +432,28 @@ function Home() {
             <p className="text-lg text-foreground/80 mb-10">
               The forest is waiting. So is your suite, your morning chai, your second breath.
             </p>
-            <Link to="/contact" className="btn-gold">Reserve Your Escape <ArrowRight size={14} /></Link>
+            <a href="#contact" className="btn-gold">Reserve Your Escape <ArrowRight size={14} /></a>
           </Reveal>
         </div>
       </section>
+
+      {/* Lightbox */}
+      {open && (
+        <div onClick={() => setOpen(null)} className="fixed inset-0 z-[80] bg-[oklch(0.08_0.02_150)]/95 backdrop-blur-md flex items-center justify-center p-6 cursor-zoom-out animate-in fade-in">
+          <img src={open} alt="Preview" className="max-h-full max-w-full rounded-xl shadow-2xl" />
+        </div>
+      )}
+
+      {/* Floating WhatsApp */}
+      <a
+        href="https://wa.me/919000000000"
+        target="_blank"
+        rel="noopener"
+        className="fixed bottom-6 right-6 z-50 bg-gold text-background p-4 rounded-full shadow-[var(--shadow-gold)] hover:scale-110 transition-transform animate-float"
+        aria-label="WhatsApp"
+      >
+        <MessageCircle size={24} />
+      </a>
     </>
   );
 }

@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/spa", label: "Spa & Activities" },
-  { to: "/gallery", label: "Gallery" },
-  { to: "/contact", label: "Contact" },
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#spa", label: "Spa & Activities" },
+  { href: "#gallery", label: "Gallery" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -38,21 +38,20 @@ export function Navbar() {
 
         <nav className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
+            <a
+              key={l.href}
+              href={l.href}
               className="text-[0.78rem] tracking-[0.2em] uppercase text-foreground/80 hover:text-gold transition-colors duration-300 relative group"
-              activeProps={{ className: "text-gold" }}
             >
               {l.label}
               <span className="absolute -bottom-2 left-0 h-px w-0 bg-gold transition-all duration-500 group-hover:w-full" />
-            </Link>
+            </a>
           ))}
         </nav>
 
-        <Link to="/contact" className="hidden lg:inline-flex btn-gold">
+        <a href="#contact" className="hidden lg:inline-flex btn-gold">
           Book Stay
-        </Link>
+        </a>
 
         <button
           aria-label="Menu"
@@ -67,18 +66,18 @@ export function Navbar() {
         <div className="lg:hidden glass-strong border-t border-border">
           <div className="px-6 py-6 flex flex-col gap-4">
             {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
+              <a
+                key={l.href}
+                href={l.href}
                 onClick={() => setOpen(false)}
                 className="text-sm tracking-[0.2em] uppercase text-foreground/80 hover:text-gold"
               >
                 {l.label}
-              </Link>
+              </a>
             ))}
-            <Link to="/contact" onClick={() => setOpen(false)} className="btn-gold mt-4 self-start">
+            <a href="#contact" onClick={() => setOpen(false)} className="btn-gold mt-4 self-start">
               Book Stay
-            </Link>
+            </a>
           </div>
         </div>
       )}
