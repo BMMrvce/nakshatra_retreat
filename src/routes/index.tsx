@@ -282,7 +282,7 @@ function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] gap-3 md:gap-4">
             {filtered.map((p, i) => (
-              <Reveal key={i} delay={(i % 4) * 0.05} className={p.aspect ? `md:${p.aspect}` : ""}>
+              <Reveal key={i} delay={(i % 4) * 0.05} className={p.aspect ?? ""}>
                 <button onClick={() => setOpen(p.src)} className="img-zoom rounded-xl block w-full h-full">
                   <img src={p.src} alt={p.cat} loading="lazy" className="w-full h-full object-cover" />
                 </button>
