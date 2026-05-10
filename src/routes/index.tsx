@@ -283,24 +283,6 @@ function Home() {
             </div>
           </Reveal>
 
-          <Reveal>
-            <div className="flex flex-wrap gap-3 justify-center mb-12">
-              {cats.map((c) => (
-                <button
-                  key={c}
-                  onClick={() => setFilter(c)}
-                  className={`px-5 py-2 rounded-full text-xs tracking-[0.2em] uppercase transition-all duration-300 ${
-                    filter === c
-                      ? "bg-gold text-background"
-                      : "border border-border text-foreground/70 hover:border-gold hover:text-gold"
-                  }`}
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
-          </Reveal>
-
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4">
             {filtered.map((p, i) => (
               <Reveal key={i} delay={(i % 4) * 0.05} className={p.aspect ?? ""}>
