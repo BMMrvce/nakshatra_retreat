@@ -40,12 +40,12 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const timeline = [
-  { y: "2008", t: "A Vision Sown", d: "Founders Aarav & Meera Iyer purchase 120 acres of unspoiled forest, vowing to preserve every tree." },
-  { y: "2010", t: "Doors Open", d: "The first six villas welcome guests, hand-built by local artisans using only reclaimed timber." },
-  { y: "2015", t: "The Spa Awakens", d: "Our subterranean spa is consecrated, blending Ayurveda with the silence of the earth." },
-  { y: "2020", t: "Carbon Negative", d: "Nakshatra becomes the first Indian retreat to receive carbon-negative certification." },
-  { y: "2025", t: "A Decade of Quiet Luxury", d: "Recognized as one of Asia's finest nature sanctuaries by Travel + Leisure." },
+const attractions = [
+  { y: "10 km", t: "Kanakapura Fort", d: "A historical site offering panoramic views and a glimpse into the region's heritage." },
+  { y: "20 km", t: "Art of Living International Center", d: "A serene place for spiritual retreats and yoga programs." },
+  { y: "30 km", t: "Ramanagara Hills (Ramadevara Betta)", d: "A popular destination for trekking and rock climbing." },
+  { y: "35 km", t: "Wonderla Amusement Park", d: "An entertainment park featuring thrilling rides and family-friendly attractions." },
+  { y: "50 km", t: "Mekedatu", d: "A scenic picnic spot where the Kaveri River flows through a gorge, surrounded by lush greenery." },
 ];
 
 const activities = [
@@ -174,12 +174,13 @@ function Home() {
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <div className="text-center mb-16">
-              <div className="eyebrow mb-4">Our Journey</div>
-              <h2 className="font-serif text-4xl md:text-5xl">A timeline of reverence</h2>
+              <div className="eyebrow mb-4">Explore Around</div>
+              <h2 className="font-serif text-4xl md:text-5xl">Nearby Attractions</h2>
+              <p className="mt-4 text-muted-foreground max-w-xl mx-auto">Curated escapes within a short drive of the retreat.</p>
             </div>
           </Reveal>
           <div className="space-y-12">
-            {timeline.map((t, i) => (
+            {attractions.map((t, i) => (
               <Reveal key={t.y} delay={i * 0.05}>
                 <div className="grid md:grid-cols-[120px_1fr] gap-6 md:gap-12 items-start border-l-2 border-gold/30 pl-6 md:border-l-0 md:pl-0">
                   <div className="font-serif text-4xl text-gradient-gold">{t.y}</div>
