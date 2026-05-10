@@ -57,25 +57,25 @@ const activities = [
 ];
 
 const photos = [
-  { src: hero, cat: "Resort", aspect: "row-span-2" },
-  { src: aerialGrounds, cat: "Resort", aspect: "row-span-2" },
+  { src: hero, cat: "Resort", aspect: "md:row-span-2" },
+  { src: aerialGrounds, cat: "Resort", aspect: "md:row-span-2" },
   { src: cottage, cat: "Rooms" },
   { src: deluxe, cat: "Rooms" },
-  { src: villa, cat: "Rooms", aspect: "row-span-2" },
+  { src: villa, cat: "Rooms", aspect: "md:row-span-2" },
   { src: honeymoon, cat: "Rooms" },
-  { src: heritageCourtyard, cat: "Heritage", aspect: "row-span-2" },
+  { src: heritageCourtyard, cat: "Heritage", aspect: "md:row-span-2" },
   { src: heritageSwing, cat: "Heritage" },
   { src: dining, cat: "Dining" },
   { src: spa, cat: "Wellness" },
   { src: gardenBench, cat: "Nature" },
-  { src: gardenLights, cat: "Nature", aspect: "row-span-2" },
+  { src: gardenLights, cat: "Nature", aspect: "md:row-span-2" },
   { src: nature, cat: "Nature" },
   { src: playground, cat: "Activities" },
   { src: cricketNet, cat: "Activities" },
   { src: adventureRope, cat: "Activities" },
   { src: gamesBarrel, cat: "Activities" },
-  { src: gamesRoom, cat: "Activities", aspect: "row-span-2" },
-  { src: wedding, cat: "Sunset", aspect: "row-span-2" },
+  { src: gamesRoom, cat: "Activities", aspect: "md:row-span-2" },
+  { src: wedding, cat: "Sunset", aspect: "md:row-span-2" },
   { src: about, cat: "Resort" },
 ];
 
@@ -280,7 +280,7 @@ function Home() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] gap-3 md:gap-4">
             {filtered.map((p, i) => (
               <Reveal key={i} delay={(i % 4) * 0.05} className={p.aspect ?? ""}>
                 <button onClick={() => setOpen(p.src)} className="img-zoom rounded-xl block w-full h-full">
