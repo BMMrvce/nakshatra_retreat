@@ -79,13 +79,10 @@ const photos = [
   { src: about, cat: "Resort" },
 ];
 
-const cats = ["All", "Resort", "Rooms", "Heritage", "Dining", "Nature", "Wellness", "Activities", "Sunset"];
-
 function Home() {
-  const [filter, setFilter] = useState("All");
   const [open, setOpen] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
-  const filtered = filter === "All" ? photos : photos.filter((p) => p.cat === filter);
+  const filtered = photos;
 
   return (
     <>
@@ -280,24 +277,6 @@ function Home() {
               <div className="eyebrow mb-4">Gallery</div>
               <h2 className="font-serif text-4xl md:text-6xl">A visual love letter</h2>
               <p className="mt-4 text-muted-foreground">Moments captured between heartbeats.</p>
-            </div>
-          </Reveal>
-
-          <Reveal>
-            <div className="flex flex-wrap gap-3 justify-center mb-12">
-              {cats.map((c) => (
-                <button
-                  key={c}
-                  onClick={() => setFilter(c)}
-                  className={`px-5 py-2 rounded-full text-xs tracking-[0.2em] uppercase transition-all duration-300 ${
-                    filter === c
-                      ? "bg-gold text-background"
-                      : "border border-border text-foreground/70 hover:border-gold hover:text-gold"
-                  }`}
-                >
-                  {c}
-                </button>
-              ))}
             </div>
           </Reveal>
 
