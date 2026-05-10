@@ -79,13 +79,10 @@ const photos = [
   { src: about, cat: "Resort" },
 ];
 
-const cats = ["All", "Resort", "Rooms", "Heritage", "Dining", "Nature", "Wellness", "Activities", "Sunset"];
-
 function Home() {
-  const [filter, setFilter] = useState("All");
   const [open, setOpen] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
-  const filtered = filter === "All" ? photos : photos.filter((p) => p.cat === filter);
+  const filtered = photos;
 
   return (
     <>
