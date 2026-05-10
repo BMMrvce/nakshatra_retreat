@@ -49,7 +49,6 @@ const attractions = [
 ];
 
 const activities = [
-  { i: Sparkles, n: "Ayurvedic Spa", d: "Hour-long oil rituals performed by lineage healers." },
   { i: Heart, n: "Sunrise Yoga", d: "Daily on the misty cliff pavilion with our resident master." },
   { i: Waves, n: "Mineral Pools", d: "Subterranean spring-fed pools at three temperatures." },
   { i: Mountain, n: "Guided Treks", d: "Hidden waterfalls, sacred groves, dawn ridge walks." },
@@ -408,13 +407,6 @@ function Home() {
                 ))}
               </div>
 
-              <div className="mt-10 aspect-[4/3] rounded-2xl overflow-hidden border border-border">
-                <iframe
-                  title="Map"
-                  className="w-full h-full grayscale-[60%] contrast-110"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=75.0%2C12.0%2C76.0%2C13.0&layer=mapnik"
-                />
-              </div>
             </Reveal>
           </div>
         </div>
